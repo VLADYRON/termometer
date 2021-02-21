@@ -21,6 +21,11 @@ public class TermometerApplication {
     @Autowired
     private Converter converter;
 
+    @GetMapping("/")
+    public String home(){
+        return "Hello";
+    }
+
     @GetMapping("/convert/farenheit/celsius/{farenheit}")
     public ResponseEntity<Double> convertFarenheitCelsius(@PathVariable double farenheit){
         double value = converter.convertFarenheitCelsius(farenheit);
